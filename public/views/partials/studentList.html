@@ -33,7 +33,7 @@
             </tr>
           </thead>
 
-          <tbody class="tableBody" ng-repeat="student in students">
+          <tbody class="tableBody" ng-repeat="student in students" ng-if="student.attendanceYtd >.8">
             <tr>
               <td>{{student.studentId}}</td>
               <td>{{student.studentName}}</td>
