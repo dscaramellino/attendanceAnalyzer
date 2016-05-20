@@ -1,0 +1,15 @@
+{
+  "name": "attendance-analyzer",
+  "version": "1.0.0",
+  "description": "A dashboard application to analyze student attendance rates",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "JJ",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.4"
+  }
+}

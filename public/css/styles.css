@@ -1,0 +1,15 @@
+/*****Student Table*****/
+.studentTable {
+  height: 100vh;
+  overflow: scroll;
+}
+
+.tableHead {
+  z-index: 10;
+}
+
+/*****Side Panel*****/
+.sidePanel{
+  height: 100vh;
+
+}

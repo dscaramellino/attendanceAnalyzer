@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="section">
+    <div class="row">
+
+      <div class="sidePanel blue col s3 m3 l3">
+       it's here
+      </div>
+
+      <div class="studentTable col s9 m9 l9" >
+        <table class="highlight">
+          <thead class="tableHead" >
+            <tr>
+                <th data-field="id">studentId</th>
+                <th data-field="name">studentName</th>
+                <th data-field="attendanceYTD">attendanceYTD</th>
+                <th data-field="5day"># of absences last 5 days</th>
+                <th data-field="10day"># of absences last 10 days</th>
+                <th data-field="counselor">guidance counselor</th>
+            </tr>
+          </thead>
+
+          <tbody class="tableBody" ng-repeat="student in students">
+            <tr>
+              <td>{{student.studentId}}</td>
+              <td>{{student.studentName}}</td>
+              <td>{{student.attendanceYtd | number: 2}}</td>
+              <td>{{student.numberOfDaysAbsentLast5Days}}</td>
+              <td>{{student.numberOfDaysAbsentLast10Days}}</td>
+              <td>{{student.guidanceCounselor}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
