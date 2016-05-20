@@ -17,8 +17,18 @@
     <div class="row">
 
       <div class="sidePanel blue col s3 m3 l3">
-       
+        
+        <form>
+        <div class="form-group">
+          <div class="input-group">
+            <div class="input-group-addon"><i class="fa fa-search"></i></div>
+              <input type="text" class="form-control" placeholder="Search by student name" ng-model="searchFish">
+            </div>
+          </div>
+      </form>
       </div>
+
+   
 
       <div class="studentTable col s9 m9 l9" >
         <table class="highlight">
@@ -33,7 +43,8 @@
             </tr>
           </thead>
 
-          <tbody class="tableBody" ng-repeat="student in students" ng-if="student.attendanceYtd >.8">
+          <!--ng-if="student.attendanceYtd <.5" -->
+          <tbody class="tableBody" ng-repeat="student in students | orderBy:sortType:sortReverse | filter:searchFish"
             <tr>
               <td>{{student.studentId}}</td>
               <td>{{student.studentName}}</td>
