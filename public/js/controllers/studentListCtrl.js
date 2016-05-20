@@ -3,7 +3,7 @@ angular.module('attendanceApp')
     //filter
     $scope.sortType     = 'attendanceYtd'; // set the default sort type
     $scope.sortReverse  = false;  // set the default sort order
-    $scope.searchFish   = '';     // set the default search/filter term
+    $scope.searchStudent   = '';     // set the default search/filter term
 
     //load student info in table: studentName
     $scope.students = [];
@@ -18,12 +18,6 @@ angular.module('attendanceApp')
           alert("error");
       });
       console.log($scope.students);
-
-
-
-
-
-
 
 
   });//END OF CONTROLLER
