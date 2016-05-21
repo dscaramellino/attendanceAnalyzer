@@ -22,10 +22,9 @@
         <!--search student by name-->
           <input type="text" class="form-control" placeholder="Search by student name" ng-model="search.studentName">
         </div>
-        <!--INSERT HERE: angular slider to filter by threshold-->
       </div>
     </form>
-
+    <!--rz slider-->
     <rzslider rz-slider-model="rangeSlider.value" rz-slider-options="rangeSlider.options"></rzslider>
 
   </div>
@@ -50,7 +49,7 @@
         </tr>
       </thead>
 
-      <tbody class="tableBody" ng-repeat="student in students | orderBy:sortType:sortReverse | filter:search">
+      <tbody class="tableBody" ng-repeat="student in students | orderBy:sortType:sortReverse | filter:search | filter:rangeFilter" >
         <tr>
           <td>{{student.studentId}}</td>
           <td>{{student.studentName}}</td>
