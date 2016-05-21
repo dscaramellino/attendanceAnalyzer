@@ -40,7 +40,6 @@ angular.module('attendanceApp')
       console.log($scope.averageAttendance);
     };
 
-
     //median calculation:
     $scope.findMedian = function(students) {
       // extract the .values field and sort the resulting array
@@ -49,23 +48,15 @@ angular.module('attendanceApp')
       }).sort(function(a, b) {
           return a - b;
       });
-      //troubleshooting here:
-      console.log(allAttendanceRates);
-      console.log(allAttendanceRates.length);
-      //get length of mutating array
-      var size = allAttendanceRates.length;
 
-      //DONT GO ABOVE THIS LINE----------
+      var size = allAttendanceRates.length;
       if (size % 2 === 0) {
          $scope.averageAttendance = (allAttendanceRates[size / 2 - 1] + allAttendanceRates[size / 2]) / 2;
       } else {
          $scope.averageAttendance = allAttendanceRates[(size - 1) / 2];
       }
-      return $scope.averageAttendance
-    };//end of median function
-
-
-
+      return $scope.averageAttendance;
+    };
 
     //load student info in table: studentName
      $http({

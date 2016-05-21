@@ -33,7 +33,7 @@
   <!--Table of students from API-->
   <div class="studentTable col s10 m10 l10">
     <table class="highlight">
-      <thead class="tableHead" >
+      <thead class="tableHead">
         <tr>
             <th data-field="id"><a href="#" ng-click="sortType = 'studentId'; sortReverse = !sortReverse">studentId<i class="fa fa-caret-down" aria-hidden="true"></i></a></th>
 
@@ -57,6 +57,8 @@
           <td>{{student.numberOfDaysAbsentLast5Days}}</td>
           <td>{{student.numberOfDaysAbsentLast10Days}}</td>
           <td>{{student.guidanceCounselor}}</td>
+          <td><a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to={{student.guidanceCounselorEmail}}}" target="_blank"><i class="fa fa-envelope fadeIn wow"></i></a>
+          </td>
         </tr>
       </tbody>
     </table>
