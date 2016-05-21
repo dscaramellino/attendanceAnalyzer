@@ -13,21 +13,34 @@
 <div class="row">
   <!--sidePanel features: searchByName, sliderFilter, mean, median-->
   <div class="sidePanel blue col s2 m2 l2">
-    <form>
-      <div class="form-group">
-        <div>
-        <!--search student by name-->
-          <input type="text" class="form-control" placeholder="Search by student name" ng-model="search.studentName">
+    <div class="panelInteriorDiv">
+      <form>
+        <div class="form-group panelInterior">
+          <div>
+          <!--search student by name-->
+            <i class="material-icons">search</i>
+            <input type="text" class="form-control" placeholder="Search by student name" ng-model="search.studentName">
+          </div>
         </div>
-      </div>
-    </form>
+      </form>
+    </div>
     <!--rz slider-->
-    <rzslider rz-slider-model="rangeSlider.value" rz-slider-options="rangeSlider.options"></rzslider>
-    <!--calculate mean-->
-    <p>Average Attendance: {{calculateMean(filteredStudents) | number:3}}%</p> 
+    <div class= "panelInteriorDiv">
+      <h2 class= "panelText">Filter by Attendance % YTD</h2>
+      <rzslider rz-slider-model="rangeSlider.value" rz-slider-options="rangeSlider.options"></rzslider>
+    </div>
 
-    <p>Median: {{findMedian(filteredStudents) | number }}%</p> 
-  </div>
+    <!--calculate mean-->
+    <div class= "panelInteriorDiv">
+      <h2 class= "panelText">Average Attendance:</h2> 
+      <p class="stats black">{{calculateMean(filteredStudents) | number:3}}%</p>
+    </div>
+    <!--calculate median-->
+    <div class= "panelInteriorDiv">
+      <h2 class="panelText">Median Attendance:</h2>
+      <p class="stats black">{{findMedian(filteredStudents) | number }}%</p>
+    </div>
+  </div> <!--end of panel -->
 
 
   <!--Table of students from API-->
@@ -57,7 +70,7 @@
           <td>{{student.numberOfDaysAbsentLast5Days}}</td>
           <td>{{student.numberOfDaysAbsentLast10Days}}</td>
           <td>{{student.guidanceCounselor}}</td>
-          <td><a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to={{student.guidanceCounselorEmail}}}" target="_blank"><i class="fa fa-envelope fadeIn wow"></i></a>
+          <td><a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to={{student.guidanceCounselorEmail}}" target="_blank"><i class="fa fa-envelope fadeIn wow"></i></a>
           </td>
         </tr>
       </tbody>
