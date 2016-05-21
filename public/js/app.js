@@ -8,7 +8,12 @@ angular.module('attendanceApp', ['ui.router', 'rzModule'])
       url: '/',
       templateUrl: 'views/partials/studentList.html',
       controller: 'studentListCtrl'
-    });
+    })
+    .state('studentHistory',{
+    url: '/studentHistory/:student',
+    templateUrl: '/views/partials/moreInfo.html',
+    controller: 'studentHistoryCtrl'
+    })
 });
 
 //can add more states later.

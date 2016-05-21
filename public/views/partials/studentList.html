@@ -48,23 +48,23 @@
     <table class="highlight">
       <thead class="tableHead">
         <tr>
-            <th data-field="id"><a href="#" ng-click="sortType = 'studentId'; sortReverse = !sortReverse">studentId<i class="fa fa-caret-down" aria-hidden="true"></i></a></th>
+            <th data-field="id"><a href="#">studentID</a></th>
 
-            <th data-field="name"><a href="#" ng-click="sortType = 'studentName'; sortReverse = !sortReverse">studentName<i class="fa fa-caret-down" aria-hidden="true"></i></a></th>
+            <th data-field="name"><a href="#">studentName</a></th>
 
-            <th data-field="attendanceYTD"><a href="#" ng-click="sortType = 'attendanceYTD'; sortReverse = !sortReverse">attendanceYTD<i class="fa fa-caret-down" aria-hidden="true"></i></a></th>
+            <th data-field="attendanceYTD"><a href="#">attendanceYTD</a></th>
 
-            <th data-field="5day"><a href="#" ng-click="sortType = 'numberOfDaysAbsentLast5Days'; sortReverse = !sortReverse"># of absences last 5 days<i class="fa fa-caret-down" aria-hidden="true"></i></a></th>
+            <th data-field="5day"><a href="#"># of absences last 5 days</a></th>
 
-            <th data-field="10day"><a href="#" ng-click="sortType = 'numberOfDaysAbsentLast10Days'; sortReverse = !sortReverse"># of absences last 10 days<i class="fa fa-caret-down" aria-hidden="true"></i></a></th>
+            <th data-field="10day"><a href="#"># of absences last 10 days</a></th>
 
-            <th data-field="counselor"><a href="#" ng-click="sortType = 'guidanceCounselor'; sortReverse = !sortReverse">guidance counselor<i class="fa fa-caret-down" aria-hidden="true"></i></a></th>
+            <th data-field="counselor"><a href="#">guidance counselor</a></th>
         </tr>
       </thead>
 
       <tbody class="tableBody" ng-repeat="student in filteredStudents = (students | orderBy:sortType:sortReverse | filter:search | filter:rangeFilter)" >
         <tr>
-          <td>{{student.studentId}}</td>
+          <td><a ui-sref="studentHistory({ student: student.studentId })">{{student.studentId}}</a></td>
           <td>{{student.studentName}}</td>
           <td>{{student.attendanceYtd | number: 2}}</td>
           <td>{{student.numberOfDaysAbsentLast5Days}}</td>
