@@ -27,7 +27,7 @@
     <!--rz slider-->
     <rzslider rz-slider-model="rangeSlider.value" rz-slider-options="rangeSlider.options"></rzslider>
     <!--calculate mean-->
-    <p>Average: {{calculateMean(filteredStudents)}}</p> <!--use a filtered array instead?-->
+    <p>Average Attendance: {{calculateMean(filteredStudents) | number:3}}%</p> <!--use a filtered array instead?-->
   </div>
 
 

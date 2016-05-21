@@ -18,23 +18,6 @@ angular.module('attendanceApp')
         }
     };
 
-  /*
-    $scope.getFilteredStudents =  function() {
-      return $filter($scope.students, $scope.rangeFilter(function(students) {
-        return students.attendanceYtd <= $scope.rangeSlider.value;
-      }));
-    }
-  */
-
-/*
-    $scope.studentFilter = function(students){
-      for(var i = 0; i < $scope.students.length; i++){
-        if(students[i].attendanceYtd <= $scope.rangeSlider.value)
-          $scope.filteredStudents.push(students[i])
-      }
-      return scope.filteredStudents;
-    }
-*/
     //custom filter
     $scope.rangeFilter = function(students){
        if(students.attendanceYtd <= $scope.rangeSlider.value)
