@@ -1,4 +1,4 @@
-var socialApp = angular.module('attendanceApp', ['ui.router'])
+angular.module('attendanceApp', ['ui.router', 'rzModule'])
 .config(function($stateProvider, $urlRouterProvider, $locationProvider) {
 
   $urlRouterProvider.otherwise('/');

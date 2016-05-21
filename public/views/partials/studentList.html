@@ -1,4 +1,4 @@
-
+<!-- navbar-->
 <div class="navbar-fixed">
   <nav class="black">
     <div class="nav-wrapper">
@@ -13,44 +13,53 @@
   </nav>
 </div>
 
-
-    <div class="row">
-
-      <div class="sidePanel blue col s3 m3 l3">
-        <form>
-          <div class="form-group">
-            <div>
-              <input type="text" class="form-control" placeholder="Search by student name" ng-model="searchStudent">
-            </div>
-          </div>
-        </form>
+<div class="row">
+  <!--sidePanel features: searchByName, sliderFilter, mean, median-->
+  <div class="sidePanel blue col s2 m2 l2">
+    <form>
+      <div class="form-group">
+        <div>
+        <!--search student by name-->
+          <input type="text" class="form-control" placeholder="Search by student name" ng-model="search.studentName">
+        </div>
+        <!--INSERT HERE: angular slider to filter by threshold-->
       </div>
+    </form>
 
-      <div class="studentTable col s9 m9 l9" >
-        <table class="highlight">
-          <thead class="tableHead" >
-            <tr>
-                <th data-field="id"><a href="#" ng-click="sortType = 'studentId'; sortReverse = !sortReverse">studentId<i class="fa fa-caret-down" aria-hidden="true"></i></a></th>
-                <th data-field="name"><a href="#" ng-click="sortType = 'studentName'; sortReverse = !sortReverse">studentName<i class="fa fa-caret-down" aria-hidden="true"></i></a></th>
-                <th data-field="attendanceYTD"><a href="#" ng-click="sortType = 'attendanceYTD'; sortReverse = !sortReverse">attendanceYTD<i class="fa fa-caret-down" aria-hidden="true"></i></a></th>
-                <th data-field="5day"><a href="#" ng-click="sortType = 'numberOfDaysAbsentLast5Days'; sortReverse = !sortReverse"># of absences last 5 days<i class="fa fa-caret-down" aria-hidden="true"></i></a></th>
-                <th data-field="10day"><a href="#" ng-click="sortType = 'numberOfDaysAbsentLast10Days'; sortReverse = !sortReverse"># of absences last 10 days<i class="fa fa-caret-down" aria-hidden="true"></i></a></th>
-                <th data-field="counselor"><a href="#" ng-click="sortType = 'guidanceCounselor'; sortReverse = !sortReverse">guidance counselor<i class="fa fa-caret-down" aria-hidden="true"></i></a></th>
-            </tr>
-          </thead>
+    <rzslider rz-slider-model="rangeSlider.value" rz-slider-options="rangeSlider.options"></rzslider>
 
-          <!--ng-if="student.attendanceYtd <.5" -->
-          <tbody class="tableBody" ng-repeat="student in students | orderBy:sortType:sortReverse | filter:searchStudent"
-            <tr>
-              <td>{{student.studentId}}</td>
-              <td>{{student.studentName}}</td>
-              <td>{{student.attendanceYtd | number: 2}}</td>
-              <td>{{student.numberOfDaysAbsentLast5Days}}</td>
-              <td>{{student.numberOfDaysAbsentLast10Days}}</td>
-              <td>{{student.guidanceCounselor}}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
- 
+  </div>
+
+
+  <!--Table of students from API-->
+  <div class="studentTable col s10 m10 l10">
+    <table class="highlight">
+      <thead class="tableHead" >
+        <tr>
+            <th data-field="id"><a href="#" ng-click="sortType = 'studentId'; sortReverse = !sortReverse">studentId<i class="fa fa-caret-down" aria-hidden="true"></i></a></th>
+
+            <th data-field="name"><a href="#" ng-click="sortType = 'studentName'; sortReverse = !sortReverse">studentName<i class="fa fa-caret-down" aria-hidden="true"></i></a></th>
+
+            <th data-field="attendanceYTD"><a href="#" ng-click="sortType = 'attendanceYTD'; sortReverse = !sortReverse">attendanceYTD<i class="fa fa-caret-down" aria-hidden="true"></i></a></th>
+
+            <th data-field="5day"><a href="#" ng-click="sortType = 'numberOfDaysAbsentLast5Days'; sortReverse = !sortReverse"># of absences last 5 days<i class="fa fa-caret-down" aria-hidden="true"></i></a></th>
+
+            <th data-field="10day"><a href="#" ng-click="sortType = 'numberOfDaysAbsentLast10Days'; sortReverse = !sortReverse"># of absences last 10 days<i class="fa fa-caret-down" aria-hidden="true"></i></a></th>
+
+            <th data-field="counselor"><a href="#" ng-click="sortType = 'guidanceCounselor'; sortReverse = !sortReverse">guidance counselor<i class="fa fa-caret-down" aria-hidden="true"></i></a></th>
+        </tr>
+      </thead>
+
+      <tbody class="tableBody" ng-repeat="student in students | orderBy:sortType:sortReverse | filter:search">
+        <tr>
+          <td>{{student.studentId}}</td>
+          <td>{{student.studentName}}</td>
+          <td>{{student.attendanceYtd | number: 2}}</td>
+          <td>{{student.numberOfDaysAbsentLast5Days}}</td>
+          <td>{{student.numberOfDaysAbsentLast10Days}}</td>
+          <td>{{student.guidanceCounselor}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
