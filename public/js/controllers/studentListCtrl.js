@@ -1,19 +1,21 @@
 angular.module('attendanceApp')
   .controller('studentListCtrl', function($scope, $http) {
-    //basic filtration
+    //variables : what we need
     $scope.sortType     = 'attendanceYtd'; // set the default sort type
     $scope.sortReverse  = false;  // set the default sort order
     $scope.searchStudent   = '';     // set the default search/filter term
     $scope.students = [];
     $scope.filteredStudents=[ ];
     $scope.averageAttendance;
+    $scope.median;
+
     //slider
     $scope.rangeSlider = {
         value: 0.5,
         options: {
             floor: 0,
             ceil: 1,
-            step: 0.1,
+            step: 0.01,
             precision: 1
         }
     };
@@ -35,8 +37,35 @@ angular.module('attendanceApp')
       var avg = sum/students.length;
       return avg;
       $scope.averageAttendance = avg;
-      console.log($scope.averageAttendance)
+      console.log($scope.averageAttendance);
     };
+
+
+    //median calculation:
+    $scope.findMedian = function(students) {
+      // extract the .values field and sort the resulting array
+      var allAttendanceRates = students.map(function(student) {
+          return student.attendanceYtd;
+      }).sort(function(a, b) {
+          return a - b;
+      });
+      //troubleshooting here:
+      console.log(allAttendanceRates);
+      console.log(allAttendanceRates.length);
+      //get length of mutating array
+      var size = allAttendanceRates.length;
+
+      //DONT GO ABOVE THIS LINE----------
+      if (size % 2 === 0) {
+         $scope.averageAttendance = (allAttendanceRates[size / 2 - 1] + allAttendanceRates[size / 2]) / 2;
+      } else {
+         $scope.averageAttendance = allAttendanceRates[(size - 1) / 2];
+      }
+      return $scope.averageAttendance
+    };//end of median function
+
+
+
 
     //load student info in table: studentName
      $http({
