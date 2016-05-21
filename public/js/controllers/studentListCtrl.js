@@ -5,7 +5,8 @@ angular.module('attendanceApp')
     $scope.sortReverse  = false;  // set the default sort order
     $scope.searchStudent   = '';     // set the default search/filter term
     $scope.students = [];
-
+    $scope.filteredStudents=[ ];
+    $scope.averageAttendance;
     //slider
     $scope.rangeSlider = {
         value: 0.5,
@@ -17,12 +18,41 @@ angular.module('attendanceApp')
         }
     };
 
+  /*
+    $scope.getFilteredStudents =  function() {
+      return $filter($scope.students, $scope.rangeFilter(function(students) {
+        return students.attendanceYtd <= $scope.rangeSlider.value;
+      }));
+    }
+  */
+
+/*
+    $scope.studentFilter = function(students){
+      for(var i = 0; i < $scope.students.length; i++){
+        if(students[i].attendanceYtd <= $scope.rangeSlider.value)
+          $scope.filteredStudents.push(students[i])
+      }
+      return scope.filteredStudents;
+    }
+*/
     //custom filter
     $scope.rangeFilter = function(students){
        if(students.attendanceYtd <= $scope.rangeSlider.value)
         return true; // this will be listed in the results
        else
         return false; // otherwise it won't be within the results
+    };
+
+    //mean calculation : this approach is only best for small data -- we are iterating over array twice!
+    $scope.calculateMean = function(students){ //maybe inject a new array of filtered students
+      var sum = 0;
+      for(var i = 0; i < students.length; i++){
+        sum += students[i].attendanceYtd; //don't forget to add the base 
+      }
+      var avg = sum/students.length;
+      return avg;
+      $scope.averageAttendance = avg;
+      console.log($scope.averageAttendance)
     };
 
     //load student info in table: studentName
@@ -37,6 +67,5 @@ angular.module('attendanceApp')
           alert("error");
       });
       console.log($scope.students);
-
 
   });//END OF CONTROLLER
