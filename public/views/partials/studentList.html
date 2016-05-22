@@ -2,7 +2,7 @@
 <div class="navbar-fixed">
   <nav class="black">
     <div class="nav-wrapper">
-     <a href="#!" class="brand-logo">Attendance Analyzer</a>
+     <a href="#!" class="brand-logo" id="appName">Attendance Analyzer</a>
     <ul class="right hide-on-med-and-down">
       <li><a href="collapsible.html"><i class="material-icons">info</i></a></li>
     </ul>
@@ -71,7 +71,7 @@
           <td>{{student.attendanceYtd | number: 2}}</td>
           <td>{{student.numberOfDaysAbsentLast5Days}}</td>
           <td>{{student.numberOfDaysAbsentLast10Days}}</td>
-          <td>{{student.percentDaysLateYtd}}</td>
+          <td>{{student.percentDaysLateYtd | number: 2}}</td>
           <td><a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to={{student.guidanceCounselorEmail}}" target="_blank"><i class="fa fa-envelope fadeIn wow"></i></a>
           </td>
         </tr>

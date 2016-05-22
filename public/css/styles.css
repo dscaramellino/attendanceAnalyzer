@@ -1,3 +1,8 @@
+/*****Navbar*****/
+#appName{
+  left: 50px;
+}
+
 /*****Student Table*****/
 .studentTable {
   height: 100vh;
