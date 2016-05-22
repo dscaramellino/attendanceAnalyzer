@@ -7,6 +7,8 @@
 .studentTable {
   height: 100vh;
   overflow: scroll;
+  display: block;
+  overflow: auto;
 }
 
 .tableHead {
