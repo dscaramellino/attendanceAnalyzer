@@ -6,7 +6,7 @@ angular.module("attendanceApp")
     //store student data
     $scope.studentData =[]; //API IS NOT WORKING. TESTED WITH POSTMAN, RETURNING AN EMPTY ARRAY
 
-    //all student data - for specific student
+    //get all student data - for a specific student
      $http({
           method: 'GET',
           url: 'https://script.google.com/macros/s/AKfycbxtbtw8aL1oY3eyxjFE98kOCqdaG4T4pWvPbNcEv9PlWHPbHQF_/exec?studentId='+$scope.studentId,
@@ -17,5 +17,5 @@ angular.module("attendanceApp")
       }).error(function(){
           alert("error");
       });
-      console.log($scope.studentData);
+      console.log($scope.studentData); //empty
 });

@@ -8,7 +8,7 @@ angular.module('attendanceApp')
           calculateMean : function(students){
             var sum = 0;
             for(var i = 0; i < students.length; i++){
-              sum += students[i].attendanceYtd; 
+              sum += students[i].attendanceYtd;
             }
             var avg = sum/students.length;
             return avg;

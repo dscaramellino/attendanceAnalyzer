@@ -10,15 +10,14 @@ angular.module('attendanceApp', ['ui.router', 'rzModule'])
       controller: 'studentListCtrl'
     })
     .state('studentHistory',{
-    url: '/studentHistory/:student',
-    templateUrl: '/views/partials/studentHistory.html',
-    controller: 'studentHistoryCtrl'
+      url: '/studentHistory/:student',
+      templateUrl: '/views/partials/studentHistory.html',
+      controller: 'studentHistoryCtrl'
     })
     .state('appInfo',{
-    url: '/appInfo/',
-    templateUrl: '/views/partials/appInfo.html',
+      url: '/appInfo/',
+      templateUrl: '/views/partials/appInfo.html',
     })
+
      $locationProvider.html5Mode(true);
 });
-
-//can add more states later.

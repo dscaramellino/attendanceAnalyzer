@@ -1,6 +1,12 @@
 /*****Navbar*****/
-#appName{
-  left: 50px;
+.navbarName{
+  margin-left: 20px;
+  font-style: helvetica;
+  font-size: 20px;
+}
+
+.icon{
+  color: white;
 }
 
 /*****Student Table*****/
@@ -23,10 +29,6 @@ th {
 .sidePanel{
   height: 100vh;
   background-image: url('/images/panelBack.png');
-}
-
-.panelInterior {
-
 }
 
 .panelText{
