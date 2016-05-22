@@ -1,5 +1,5 @@
 angular.module('attendanceApp')
-  .controller('studentListCtrl', function($scope, $http, classData) { //this controller is just view logic
+  .controller('studentListCtrl', function($scope, $http, classData, statService) { //this controller is just view logic
 
     $scope.sortType     = 'attendanceYtd';
     $scope.searchStudent   = '';
@@ -27,34 +27,7 @@ angular.module('attendanceApp')
         return false; // otherwise it won't be within the results
     };
 
-    //mean calculation : this approach is only best for small data -- we are iterating over array twice!
-    $scope.calculateMean = function(students){ //maybe inject a new array of filtered students
-      var sum = 0;
-      for(var i = 0; i < students.length; i++){
-        sum += students[i].attendanceYtd; //don't forget to add the base 
-      }
-      var avg = sum/students.length;
-      return avg;
-      $scope.averageAttendance = avg;
-      console.log($scope.averageAttendance);
-    };
-
-    //median calculation:
-    $scope.findMedian = function(students) {
-      // extract the .values field and sort the resulting array
-      var allAttendanceRates = students.map(function(student) {
-          return student.attendanceYtd;
-      }).sort(function(a, b) {
-          return a - b;
-      });
-
-      var size = allAttendanceRates.length;
-      if (size % 2 === 0) {
-         $scope.averageAttendance = (allAttendanceRates[size / 2 - 1] + allAttendanceRates[size / 2]) / 2;
-      } else {
-         $scope.averageAttendance = allAttendanceRates[(size - 1) / 2];
-      }
-      return $scope.averageAttendance;
-    };
+    $scope.calculateMean = statService.calculateMean;
+    $scope.findMedian = statService.findMedian;
 
   });//END OF CONTROLLER
