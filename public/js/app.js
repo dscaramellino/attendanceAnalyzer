@@ -11,9 +11,10 @@ angular.module('attendanceApp', ['ui.router', 'rzModule'])
     })
     .state('studentHistory',{
     url: '/studentHistory/:student',
-    templateUrl: '/views/partials/moreInfo.html',
+    templateUrl: '/views/partials/studentHistory.html',
     controller: 'studentHistoryCtrl'
     })
+     $locationProvider.html5Mode(true);
 });
 
 //can add more states later.
