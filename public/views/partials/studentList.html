@@ -4,7 +4,7 @@
     <div class="nav-wrapper">
      <a href="#!" class="brand-logo">Attendance Analyzer</a>
     <ul class="right hide-on-med-and-down">
-      <li><a href="collapsible.html"><i class="material-icons">refresh</i></a></li>
+      <li><a href="collapsible.html"><i class="material-icons">info</i></a></li>
     </ul>
     </div>
   </nav>
@@ -12,7 +12,7 @@
 
 <div class="row">
   <!--sidePanel features: searchByName, sliderFilter, mean, median-->
-  <div class="sidePanel blue col s2 m2 l2">
+  <div class="sidePanel col s2 m2 l2">
     <div class="panelInteriorDiv">
       <form>
         <div class="form-group panelInterior">
@@ -52,13 +52,15 @@
 
             <th data-field="name"><a href="#">studentName</a></th>
 
-            <th data-field="attendanceYTD"><a href="#">attendanceYTD</a></th>
+            <th data-field="attendanceYTD"><a href="#">attendance rate YTD</a></th>
 
             <th data-field="5day"><a href="#"># of absences last 5 days</a></th>
 
             <th data-field="10day"><a href="#"># of absences last 10 days</a></th>
 
-            <th data-field="counselor"><a href="#">guidance counselor</a></th>
+            <th data-field="daysLateYTD"><a href="#">% days late YTD</a></th>
+
+            <th data-field="counselorContact"><a href="#">contact counselor</a></th>
         </tr>
       </thead>
 
@@ -69,7 +71,7 @@
           <td>{{student.attendanceYtd | number: 2}}</td>
           <td>{{student.numberOfDaysAbsentLast5Days}}</td>
           <td>{{student.numberOfDaysAbsentLast10Days}}</td>
-          <td>{{student.guidanceCounselor}}</td>
+          <td>{{student.percentDaysLateYtd}}</td>
           <td><a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to={{student.guidanceCounselorEmail}}" target="_blank"><i class="fa fa-envelope fadeIn wow"></i></a>
           </td>
         </tr>

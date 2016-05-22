@@ -1,0 +1,43 @@
+<!-- navbar-->
+<div class="navbar-fixed">
+  <nav class="black">
+    <div class="nav-wrapper">
+     <a href="#!" class="brand-logo">Student History</a>
+    </div>
+  </nav>
+</div>
+
+  <!--Table of students from API-->
+  <div class="studentTable col s12 m12 l12">
+    <table class="highlight">
+      <thead class="tableHead">
+        <tr>
+            <th data-field="id"><a href="#">studentID</a></th>
+
+            <th data-field="name"><a href="#">studentName</a></th>
+
+            <th data-field="attendanceSy1112"><a href="#">attendance rate 2011-2012</a></th>
+
+            <th data-field="attendanceSy1213"><a href="#">attendance rate 2012-2013</a></th>
+
+            <th data-field="attendanceSy1314"><a href="#">attendance rate 2013-2014</a></th>
+
+            <th data-field="percentDaysLateSy1314"><a href="#">% days late 2013-2014 </a></th>
+
+            <th data-field="counselor"><a href="#">guidance counselor</a></th>
+        </tr>
+      </thead>
+
+      <tbody class="tableBody" ng-repeat="student in studentData">
+        <tr>
+          <td>{{student.studentId}}</td>
+          <td>{{student.studentName}}</td>
+          <td>{{student.attendanceSy1112 | number: 2}}</td>
+          <td>{{student.attendanceSy1213}}</td>
+          <td>{{student.attendanceSy1314}}</td>
+          <td>{{student.percentDaysLateSy1314}}</td>
+          <td>{{student.guidanceCounselor}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

@@ -15,6 +15,7 @@ th {
 /*****Side Panel*****/
 .sidePanel{
   height: 100vh;
+  background-image: url('/images/panelBack.png');
 }
 
 .panelInterior {
