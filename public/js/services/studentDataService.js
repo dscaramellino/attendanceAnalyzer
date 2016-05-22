@@ -16,7 +16,7 @@ angular.module('attendanceApp')
               studentsData.push(data[i]);
 
           }).error(function(){
-            alert("error", error);
+            console.log("error", error);
           });
 
           return studentsData;

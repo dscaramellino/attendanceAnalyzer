@@ -1,5 +1,5 @@
 angular.module('attendanceApp')
-  .controller('studentListCtrl', function($scope, $http, classData) {
+  .controller('studentListCtrl', function($scope, $http, classData) { //this controller is just view logic
 
     $scope.sortType     = 'attendanceYtd';
     $scope.searchStudent   = '';

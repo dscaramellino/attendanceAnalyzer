@@ -43,3 +43,14 @@ th {
   padding-top: 40px;
   color:white;
 }
+
+/*****About App Card*****/
+.infoCard {
+  height: 100vh;
+  width:100%;
+  background-image: url('/images/panelBack.png');
+}
+
+.subtitle{
+  font-size: 20px;
+}
