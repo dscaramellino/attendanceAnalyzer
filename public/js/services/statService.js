@@ -18,7 +18,7 @@ angular.module('attendanceApp')
             var medianAttendance;
             // extract the .attendanceYtd field and sort the resulting array
             var allAttendanceRates = students.map(function(student) {
-              return student.attendanceYtd;
+              return student.numberOfDaysAbsentLast10Days;
             }).sort(function(a, b) {
               return a - b;
             });

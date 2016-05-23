@@ -13,7 +13,8 @@ angular.module('attendanceApp')
           }).success(function(data){
 
             for(var i = 0; i < data.length; i++)
-              studentData.push(data[i]);
+              if(data[i].numberOfDaysAbsentLast5Days && data[i].numberOfDaysAbsentLast10Days)
+                studentData.push(data[i]);
 
           }).error(function(){
             alert("error", error);
