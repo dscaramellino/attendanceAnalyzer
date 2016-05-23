@@ -22,9 +22,9 @@ angular.module('attendanceApp')
     //custom filter
     $scope.rangeFilter = function(students){
        if(students.attendanceYtd <= $scope.rangeSlider.value)
-        return true; // this will be listed in the results
+        return true;
        else
-        return false; // otherwise it won't be within the results
+        return false;
     };
 
     $scope.calculateMean = statService.calculateMean;
